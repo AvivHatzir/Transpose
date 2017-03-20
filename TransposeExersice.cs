@@ -58,9 +58,10 @@ namespace MetricTransposer
 			string[,] transpoedMetric = new string[metric.GetLength(1), metric.GetLength(0)];
 			for (int i = 0; i < metric.GetLength(0); i++)
 			{
-				for (int j = 0; j < metric.GetLength(1); j++)
+				for (int j = i; j < metric.GetLength(1); j++)
 				{
 					transpoedMetric[j, i] = metric[i, j];
+					transpoedMetric[i, j] = metric[j, i];
 				}
 			}
 			return transpoedMetric;
